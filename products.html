@@ -52,7 +52,7 @@
 									<span v-else="">未啟用</span>
 								</td>
 								<td width="120">
-									<button type="button" v-on:click="temp=item"
+									<button type="button" @click="productDetail(item)"
 										class="btn btn-primary">查看細節</button>
 								</td>
 							</tr>
@@ -86,7 +86,7 @@
 							<img :src="subImage" alt="" class="images m-2">
 						</template>
 					</template>
-					<p class="text-secondary">請選擇一個商品查看</p>
+					<p class="text-secondary" v-else>請選擇一個商品查看</p>
 				</div>
 			</div>
 		</div>

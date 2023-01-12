@@ -20,7 +20,7 @@
 					請先登入
 				</h1>
 				<div class="col-12">
-					<form id="form" class="form-signin">
+					<form id="form" class="form-signin" @submit.prevent="login">
 						<div class="form-floating mb-3">
 							<input type="email" class="form-control" id="username"
 								placeholder="name@example.com" required autofocus v-model="user.username">
@@ -31,14 +31,14 @@
 								placeholder="Password" required v-model="user.password">
 							<label for="password">Password</label>
 						</div>
-						<button id="loginBtn" class="btn btn-lg btn-primary w-100 mt-3" type="submit" @:click="login">
+						<button id="loginBtn" class="btn btn-lg btn-primary w-100 mt-3" type="submit" @click="login">
 							登入
 						</button>
 					</form>
 				</div>
 			</div>
 			<p class="mt-5 mb-3 text-muted">
-				&copy; 2021~∞ - 六角學院
+				&copy; 2023~∞ - 六角學院
 			</p>
 		</div>
 	</div>
@@ -54,42 +54,6 @@
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script src="js/all.js"></script>
 
-	<script>
-	const loginBtn = document.querySelector("#loginBtn");
-	const emailInput = document.querySelector("#username");
-	const passwordInput = document.querySelector("#password");
-	loginBtn.addEventListener('click', login);
-
-
-	function login(event) {
-		// event.preventDefault();
-		const username = emailInput.vaule;
-		const password = passwordInput.vaule;
-		// console.log(loginBtn, username, password);
-		const user = {
-			username,
-			password
-		}
-	}
-
-	const apiUrl = "https://vue3-course-api.hexschool.io/v2"
-	axios.post(`${apiUrl}/admin/signin`, user)
-	.then((res)=>{
-		console.log(res);
-		const {toeken, expired} = res.data;
-		console.log(token, expired);
-		document.cookie = `richToken =${ token }; expires=${ new Date(expired)};`;
-		axios.default.headers.common['Authorization'] = token;
-		window.location = 'products.html'
-	})
-	.catch((error)=>{
-		console.log(error);
-	})
-	function checkLogin(params) {
-		const token = document.cookie.replace(/(?:(?:^|.*;\s*)myToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-		axios.default.headers.common['Authorization'] = token;
-	}
-	</script>
 
 
 </body>
