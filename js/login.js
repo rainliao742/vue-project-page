@@ -1,5 +1,3 @@
-//const { default: axios } = require("axios");
-
 const url = "https://vue3-course-api.hexschool.io/v2"; //公用加入點
 const path = 'richliao' //個人path
 

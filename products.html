@@ -47,9 +47,7 @@
 									{{ item.price }}
 								</td>
 								<td width="150">
-									<span v-if="item.is_enabled"
-										class="text-success">啟用</span>
-									<span v-else="">未啟用</span>
+									<span class="text-success">{{ item.is_enabled ? '啟用' : '未啟用'}}</span>
 								</td>
 								<td width="120">
 									<button type="button" @click="productDetail(item)"
