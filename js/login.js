@@ -1,6 +1,12 @@
 const url = "https://vue3-course-api.hexschool.io/v2"; //公用加入點
 const path = 'richliao' //個人path
 
+//第二週流程
+// 1.get(取得資料)
+// 2.登入功能
+// 3.cookie(驗證登入正確)
+// 4.驗證流程是否正確
+
 const App = {
   data() {
     return {
