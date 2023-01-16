@@ -27,7 +27,6 @@ const App = {
       axios.get(`${url}/api/${path}/admin/products`)//有分頁位置,productAll（沒有分頁)
       .then((res)=>{
         this.products = [...res.data.products]; //讀取遠端data裡的products,並且淺拷貝,放入空陣列products
-        console.log(this.products);
       })
       .catch((err)=>{
        alert(err.data.message);
@@ -63,8 +62,8 @@ const App = {
 
     },
     addImage(){
-      this.tempProduct.imagesUrl = [];
-      this.tempProduct.imagesUrl.push('');
+      this.tempProduct.imagesUrl = []; //將原來的圖片陣列清空
+      this.tempProduct.imagesUrl.push(''); //加入一筆資料
     },
     openModal(status, product){ //帶入參數代稱為status, 當前資料為product
         if ( status === 'new'){
